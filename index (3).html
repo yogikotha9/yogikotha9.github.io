@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yogeshwar Kotha · Python Full Stack Engineer</title>
+<meta name="description" content="Yogeshwar Kotha, Python Full Stack Engineer with 7+ years building FastAPI and Django microservices, React and Angular front ends, event pipelines, and production generative AI.">
+<meta property="og:title" content="Yogeshwar Kotha · Python Full Stack Engineer">
+<meta property="og:description" content="FastAPI, Django, React, Kafka, and production AI. 7+ years across Delta Dental, Volkswagen, Nordstrom, and Citrix.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0A0E14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='.5' stop-color='%235BA4E6'/%3E%3Cstop offset='.5' stop-color='%23F2C94C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='50%25' y='57%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-weight='800' font-size='26' fill='%230A0E14'%3EYK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dark single column; hero pairs the name with a live trace of the Delta Dental AI assistant request; work reads as a dated log. Python-blue + Python-yellow as a quiet two-tone accent. */
+:root{
+  --bg:#0A0E14; --bg2:#0E141C; --surface:#121A24; --surface2:#17212D; --line:#223042; --line2:#2C3D52;
+  --ink:#E8EDF4; --muted:#93A1B5; --faint:#5F6E83;
+  --blue:#5BA4E6; --blue-soft:rgba(91,164,230,.12); --gold:#F2C94C; --gold-soft:rgba(242,201,76,.12); --ok:#5FD3A5;
+  --display:"Schibsted Grotesk","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --r:12px; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--body);padding-inline:clamp(16px,5vw,48px);padding-block:0;
+  background-image:radial-gradient(1000px 520px at 85% -10%,rgba(91,164,230,.13),transparent 60%),radial-gradient(700px 420px at -10% 25%,rgba(242,201,76,.06),transparent 60%);background-repeat:no-repeat}
+a{color:var(--blue);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto}
+::selection{background:var(--gold);color:#111}
+
+/* nav */
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-block:1rem;margin-inline:calc(-1*clamp(16px,5vw,48px));padding-inline:clamp(16px,5vw,48px);background:rgba(10,14,20,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.mark{display:flex;align-items:center;gap:.6rem;color:var(--ink);text-decoration:none;font:800 1rem/1 var(--display);letter-spacing:.02em}
+.mark i{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--blue) 0 50%,var(--gold) 50% 100%);color:#0A0E14;font-style:normal;font-size:.8rem}
+nav.top ul{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav.top ul a{color:var(--muted);text-decoration:none;font-size:.9rem}
+nav.top ul a:hover{color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:center;padding-block:clamp(3rem,8vw,5.5rem) clamp(2.5rem,6vw,4rem)}
+.status{display:inline-flex;align-items:center;gap:.55rem;font:500 .78rem/1 var(--mono);color:var(--ok);background:rgba(95,211,165,.08);border:1px solid rgba(95,211,165,.25);padding:.45rem .7rem;border-radius:999px;margin-bottom:1.4rem}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(95,211,165,.6)}
+@media (prefers-reduced-motion:no-preference){.status::before{animation:ping 2.2s ease-out infinite}@keyframes ping{0%{box-shadow:0 0 0 0 rgba(95,211,165,.55)}80%,100%{box-shadow:0 0 0 9px rgba(95,211,165,0)}}}
+h1{font:900 clamp(2.8rem,7.4vw,5.2rem)/.95 var(--display);letter-spacing:-.035em;margin:0 0 1rem;text-wrap:balance}
+h1 .py{background:linear-gradient(90deg,var(--blue),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font:600 clamp(1.1rem,2.3vw,1.4rem)/1.35 var(--display);color:var(--ink);margin:0 0 1rem}
+.role span{color:var(--muted);font-weight:500}
+.lede{color:var(--muted);max-width:58ch;margin:0 0 1.6rem}
+.cta{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font:600 .92rem/1 var(--body);padding:.85rem 1.15rem;border-radius:8px;text-decoration:none;border:1px solid var(--line2);color:var(--ink);background:var(--surface);cursor:pointer;transition:border-color .2s,transform .2s}
+.btn:hover{border-color:var(--blue);transform:translateY(-1px)}
+.btn.primary{background:var(--gold);border-color:var(--gold);color:#14110A}
+.btn.primary:hover{border-color:var(--gold);filter:brightness(1.05)}
+.meta{display:flex;gap:1.25rem;flex-wrap:wrap;margin-top:1.6rem;font:400 .82rem/1.4 var(--mono);color:var(--faint)}
+.meta b{color:var(--ink);font-weight:500}
+
+/* trace */
+.trace{background:linear-gradient(180deg,var(--surface),var(--bg2));border:1px solid var(--line);border-radius:14px;padding:1.4rem;font-family:var(--mono);font-size:.8rem;min-width:0;box-shadow:0 30px 60px -30px rgba(0,0,0,.7);margin:0}
+.trace-head{display:flex;justify-content:space-between;gap:.75rem;color:var(--faint);font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.4rem}
+.trace-q{color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:.6rem .75rem;margin:.6rem 0 1rem;font-size:.78rem}
+.trace-q span{color:var(--gold)}
+.trace ol{list-style:none;margin:0;padding:0}
+.trace li{display:grid;grid-template-columns:1.1rem minmax(0,1fr) auto;gap:.7rem;align-items:start;padding-block:.5rem;position:relative}
+.trace li::before{content:"";width:.6rem;height:.6rem;border-radius:50%;border:2px solid var(--blue);background:var(--surface);margin-top:.3rem;position:relative;z-index:1}
+.trace li:not(:last-child)::after{content:"";position:absolute;left:.28rem;top:1.2rem;bottom:-.45rem;width:2px;background:var(--line2)}
+.trace li.ai::before{border-color:var(--gold)}
+.hop{color:var(--ink);font-weight:500}
+.what{display:block;color:var(--muted);font-size:.73rem;margin-top:2px}
+.tag{font-size:.66rem;color:var(--blue);background:var(--blue-soft);padding:.15rem .45rem;border-radius:4px;white-space:nowrap}
+.ai .tag{color:var(--gold);background:var(--gold-soft)}
+@media (prefers-reduced-motion:no-preference){
+  .trace li::before{animation:hop 4.2s ease-in-out infinite}
+  .trace li:nth-child(2)::before{animation-delay:.5s}.trace li:nth-child(3)::before{animation-delay:1s}.trace li:nth-child(4)::before{animation-delay:1.5s}.trace li:nth-child(5)::before{animation-delay:2s}.trace li:nth-child(6)::before{animation-delay:2.5s}
+  @keyframes hop{0%,70%,100%{background:var(--surface)}10%,28%{background:currentColor}}
+  .trace li::before{color:var(--blue)} .trace li.ai::before{color:var(--gold)}
+}
+
+/* sections */
+section{padding-block:clamp(3rem,7vw,4.5rem);border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:2rem;align-items:baseline;margin-bottom:2rem}
+.kicker{display:block;font:500 .72rem/1 var(--mono);color:var(--gold);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem}
+h2{font:800 clamp(1.6rem,3vw,2rem)/1.1 var(--display);letter-spacing:-.015em;margin:0;text-wrap:balance}
+.sec-head p{margin:0;color:var(--muted);max-width:62ch}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:2rem}
+.about-body p{margin:0 0 1rem;max-width:68ch;color:#C9D3E0}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:1.6rem 0 0;padding:0;list-style:none}
+.facts li{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem}
+.facts b{display:block;font:800 1.9rem/1 var(--display);margin-bottom:.35rem;font-variant-numeric:tabular-nums}
+.facts li:nth-child(odd) b{color:var(--gold)} .facts li:nth-child(even) b{color:var(--blue)}
+.facts span{font-size:.84rem;color:var(--muted)}
+.timeline{margin-top:2rem}
+.timeline h3{margin:0 0 .7rem;font:500 .7rem/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--faint)}
+.tl-bar{display:flex;gap:4px;height:52px}
+.tl-seg{display:flex;flex-direction:column;justify-content:center;padding:0 .7rem;min-width:0;background:var(--surface2);border-radius:6px;border-bottom:3px solid var(--blue);overflow:hidden}
+.tl-seg b{font:600 .82rem/1.2 var(--body);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl-seg span{font:400 .68rem/1.3 var(--mono);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl-seg.intern{border-bottom-color:var(--faint)}
+.tl-seg.now{background:linear-gradient(135deg,rgba(242,201,76,.18),rgba(91,164,230,.14));border-bottom-color:var(--gold)}
+.tl-axis{display:flex;justify-content:space-between;font:400 .7rem/1 var(--mono);color:var(--faint);margin-top:.55rem;font-variant-numeric:tabular-nums}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:1rem}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.2rem;display:grid;gap:.8rem;align-content:start}
+.skill h3{margin:0;display:flex;align-items:center;gap:.5rem;font:500 .74rem/1 var(--mono);text-transform:uppercase;letter-spacing:.11em;color:var(--blue)}
+.skill.ai h3{color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:0;padding:0;list-style:none}
+.chips li{font-size:.82rem;padding:.28rem .6rem;border:1px solid var(--line2);border-radius:6px;background:var(--bg2);color:#D3DCE7}
+
+/* experience */
+.job{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:2rem;padding-block:2.2rem;border-top:1px dashed var(--line2)}
+.job:first-child{border-top:0;padding-top:0}
+.when{font:500 .82rem/1.6 var(--mono);color:var(--muted)}
+.badge{display:inline-block;margin-top:.5rem;font:500 .66rem/1 var(--mono);text-transform:uppercase;letter-spacing:.09em;padding:.32rem .55rem;border-radius:4px}
+.badge.now{color:#14110A;background:var(--gold)}
+.badge.intern{color:var(--muted);border:1px solid var(--line2)}
+.place{display:block;margin-top:.5rem;color:var(--faint)}
+.job h3{font:800 1.45rem/1.15 var(--display);margin:0;letter-spacing:-.01em}
+.job .title{margin:.25rem 0 .9rem;color:var(--blue);font-weight:600}
+.job .project{margin:0 0 1rem;max-width:70ch;color:#C2CCDA;font-size:.96rem;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;padding:.85rem 1rem}
+.job .project b{color:var(--ink);font-weight:600}
+ul.points{margin:0 0 .9rem;padding-left:1.15rem;display:grid;gap:.45rem;max-width:72ch}
+ul.points li{color:#D3DCE7}
+ul.points li::marker{color:var(--gold)}
+ul.points strong{color:var(--ink);font-weight:600}
+details.more{margin:0 0 1rem}
+details.more summary{cursor:pointer;font:500 .82rem/1 var(--mono);color:var(--blue);list-style:none;display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 0}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::before{content:"+";display:inline-grid;place-items:center;width:1.15rem;height:1.15rem;border:1px solid var(--blue);border-radius:4px}
+details.more[open] summary::before{content:"–"}
+details.more[open] summary{margin-bottom:.5rem}
+.tags{display:flex;flex-wrap:wrap;gap:.35rem;margin:0;padding:0;list-style:none}
+.tags li{font:400 .72rem/1 var(--mono);padding:.36rem .55rem;border-radius:5px;background:var(--blue-soft);color:#BFD9F2}
+
+/* cases */
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:1rem}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem;display:grid;gap:.8rem;align-content:start;transition:border-color .2s,transform .2s}
+.case:hover{border-color:var(--line2);transform:translateY(-2px)}
+.case .where{font:500 .7rem/1 var(--mono);text-transform:uppercase;letter-spacing:.11em;color:var(--gold);margin:0}
+.case h3{font:700 1.18rem/1.25 var(--display);margin:0;text-wrap:balance}
+.case dl{margin:0;display:grid;gap:.3rem}
+.case dt{font:500 .66rem/1 var(--mono);text-transform:uppercase;letter-spacing:.11em;color:var(--faint);margin-top:.55rem}
+.case dd{margin:0;font-size:.92rem;color:#C9D3E0}
+.case .stack{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.3rem}
+.case .stack span{font:400 .68rem/1 var(--mono);color:var(--blue);border:1px solid var(--line2);padding:.3rem .45rem;border-radius:4px}
+
+/* practice + hobbies */
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1.25rem}
+.grid4 div{border-left:2px solid var(--gold);padding-left:1rem}
+.grid4 div:nth-child(even){border-left-color:var(--blue)}
+.grid4 h3{font:700 1.05rem/1.2 var(--display);margin:0 0 .35rem}
+.grid4 p{margin:0;color:var(--muted);font-size:.93rem}
+.hobbies{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:1rem}
+.hobby{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem;display:grid;gap:.7rem;align-content:start}
+.hobby svg{width:44px;height:44px;color:var(--gold)}
+.hobby:nth-child(2) svg{color:var(--blue)}
+.hobby h3{margin:0;font:700 1.15rem/1.2 var(--display)}
+.hobby p{margin:0;color:var(--muted)}
+
+/* education */
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:1rem}
+.edu div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem}
+.edu .lvl{font:500 .7rem/1 var(--mono);text-transform:uppercase;letter-spacing:.11em;color:var(--gold);margin:0 0 .6rem}
+.edu h3{font:700 1.15rem/1.3 var(--display);margin:0 0 .3rem;text-wrap:balance}
+.edu p{margin:0;color:var(--muted)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:2.5rem;align-items:start}
+.contact h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:1rem}
+.contact p{color:var(--muted);max-width:52ch;margin:0}
+.reach{display:grid;gap:.7rem}
+.row{display:flex;justify-content:space-between;align-items:center;gap:.75rem;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.8rem 1rem;min-width:0;flex-wrap:wrap}
+.row small{display:block;font:500 .66rem/1 var(--mono);text-transform:uppercase;letter-spacing:.11em;color:var(--faint);margin-bottom:.35rem}
+.row .val{font-family:var(--mono);font-size:.9rem;word-break:break-all;color:var(--ink)}
+.row a.val{color:var(--blue)}
+.copy{font:600 .78rem/1 var(--body);padding:.55rem .8rem;border-radius:6px;border:1px solid var(--line2);background:var(--bg2);color:var(--ink);cursor:pointer}
+.copy:hover{border-color:var(--gold)}
+.nav-cv{display:inline-flex;align-items:center;gap:.35rem;color:var(--gold)!important;border:1px solid rgba(242,201,76,.4);padding:.35rem .6rem;border-radius:6px}
+.nav-cv:hover{background:var(--gold-soft)}
+.row.cv{border-color:rgba(242,201,76,.35)}
+.row.cv .btn{padding:.6rem .9rem;font-size:.85rem}
+@media (max-width:520px){nav.top ul{display:flex}nav.top ul li:not(:last-child){display:none}}
+footer{padding-block:2rem;border-top:1px solid var(--line);color:var(--faint);font:400 .78rem/1.5 var(--mono);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+
+/* ---------- effects ---------- */
+.progress{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:3px;width:100%;z-index:20;transform-origin:0 50%;transform:scaleX(var(--p,0));background:linear-gradient(90deg,var(--gold),var(--blue));pointer-events:none}
+.aurora{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.aurora span{position:absolute;width:46vmax;height:46vmax;border-radius:50%;filter:blur(90px);opacity:.16}
+.aurora span:nth-child(1){background:var(--blue);top:-18vmax;right:-12vmax}
+.aurora span:nth-child(2){background:var(--gold);bottom:-24vmax;left:-16vmax;opacity:.08}
+.trace{position:relative;isolation:isolate}
+.trace::before{content:"";position:absolute;inset:-1px;border-radius:15px;padding:1px;background:conic-gradient(from var(--a,0deg),transparent 0 62%,var(--gold) 72%,var(--blue) 82%,transparent 92%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;z-index:-1;pointer-events:none}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+.typed{color:var(--gold);border-right:2px solid var(--gold);padding-right:2px;white-space:nowrap}
+.case,.skill,.hobby,.facts li,.edu div{position:relative;overflow:hidden}
+.case::after,.skill::after,.hobby::after,.facts li::after,.edu div::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .25s;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(242,201,76,.10),transparent 60%)}
+.case:hover::after,.skill:hover::after,.hobby:hover::after,.facts li:hover::after,.edu div:hover::after{opacity:1}
+.chips li{transition:border-color .2s,color .2s,box-shadow .2s}
+.chips li:hover{border-color:var(--gold);color:var(--ink);box-shadow:0 0 0 3px var(--gold-soft)}
+.skill.ai .chips li:hover{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+.job h3{transition:color .2s}.job:hover h3{color:var(--gold)}
+.btn.primary{position:relative;overflow:hidden}
+.btn.primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%)}
+.btn.primary:hover::after{transform:translateX(120%);transition:transform .7s ease}
+@media (prefers-reduced-motion:no-preference){
+  .aurora span:nth-child(1){animation:drift1 22s ease-in-out infinite alternate}
+  .aurora span:nth-child(2){animation:drift2 26s ease-in-out infinite alternate}
+  @keyframes drift1{to{transform:translate(-14vmax,10vmax) scale(1.15)}}
+  @keyframes drift2{to{transform:translate(12vmax,-8vmax) scale(1.1)}}
+  .trace::before{animation:spin 6s linear infinite}
+  @keyframes spin{to{--a:360deg}}
+  .typed{animation:caret 1s steps(1) infinite}
+  @keyframes caret{50%{border-right-color:transparent}}
+  .hero > div > *{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .hero > div > *:nth-child(2){animation-delay:.06s}.hero > div > *:nth-child(3){animation-delay:.12s}.hero > div > *:nth-child(4){animation-delay:.18s}.hero > div > *:nth-child(5){animation-delay:.24s}.hero > div > *:nth-child(6){animation-delay:.3s}
+  .hero .trace{animation:rise .9s .2s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{opacity:.001;transform:translateY(14px)}}
+  @supports (animation-timeline: view()){
+    section .sec-head, .job, .case, .skill, .grid4 > div, .hobby, .edu > div, .reach .row{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
+    @keyframes reveal{from{opacity:.25;transform:translateY(22px)}}
+  }
+}
+
+@media (max-width:860px){
+  .hero,.contact{grid-template-columns:minmax(0,1fr)}
+  .sec-head,.about,.job{grid-template-columns:minmax(0,1fr);gap:.75rem}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tl-seg span{display:none}
+  .tl-seg{padding:0 .45rem}
+  nav.top ul{gap:1rem}
+}
+@media (max-width:520px){nav.top ul{display:none}}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"><span></span><span></span></div>
+<div class="wrap">
+  <nav class="top" aria-label="Main">
+    <a class="mark" href="#top"><i>YK</i>Yogeshwar Kotha</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#cases">Case studies</a></li>
+      <li><a href="#hobbies">Outside work</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="nav-cv" href="Yogeshwar_Kotha_Resume.pdf" download="Yogeshwar_Kotha_Resume.pdf">Resume<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg></a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <span class="status">Open to Python full stack roles · Bay Area &amp; remote</span>
+      <h1>Yogeshwar<br><span class="py">Kotha</span></h1>
+      <p class="role">Python Full Stack Engineer <span>· builds with <span class="typed" id="typed">FastAPI</span></span></p>
+      <p class="lede">I build complete web products, from Python microservices and event pipelines to React and Angular front ends, and I put generative AI into production. 7+ years across Delta Dental, Volkswagen, Nordstrom, and Citrix.</p>
+      <div class="cta">
+        <a class="btn primary" href="Yogeshwar_Kotha_Resume.pdf" download="Yogeshwar_Kotha_Resume.pdf"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>Download Resume</a>
+        <a class="btn" href="#experience">See my work</a>
+        <a class="btn" href="https://github.com/yogikotha9" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      <div class="meta"><span><b>7+</b> years</span><span><b>Python</b> 3.7 → 3.11</span><span>Fremont, CA</span></div>
+    </div>
+    <figure class="trace" aria-label="How a member question flows through the Delta Dental AI benefits assistant">
+      <div class="trace-head"><span>request trace · delta dental assistant</span><span>SSE</span></div>
+      <div class="trace-q"><span>member ›</span> "Is a crown covered under my plan this year?"</div>
+      <ol>
+        <li><span><span class="hop">Next.js portal</span><span class="what">question sent, answer streamed back</span></span><span class="tag">UI</span></li>
+        <li><span><span class="hop">FastAPI · Uvicorn</span><span class="what">OAuth 2.0 / JWT through API Gateway</span></span><span class="tag">api</span></li>
+        <li class="ai"><span><span class="hop">LangGraph agent</span><span class="what">plans steps, calls claim tools over MCP</span></span><span class="tag">agent</span></li>
+        <li class="ai"><span><span class="hop">pgvector retrieval</span><span class="what">plan documents + fee schedules (RAG)</span></span><span class="tag">rag</span></li>
+        <li class="ai"><span><span class="hop">AWS Bedrock · Claude</span><span class="what">grounded answer with plan citations</span></span><span class="tag">llm</span></li>
+        <li><span><span class="hop">Prometheus · Splunk</span><span class="what">latency, cost, and eval scores logged</span></span><span class="tag">observe</span></li>
+      </ol>
+    </figure>
+  </header>
+
+  <section id="about">
+    <div class="about">
+      <div><span class="kicker">01 · About</span><h2>Full stack, Python first</h2></div>
+      <div class="about-body">
+        <p>I'm a full stack engineer who does most of my work in Python. I like owning a feature end to end: designing the API and data model, choosing where work should happen synchronously and where it belongs on a queue, building the screen that uses it, and making sure production tells me when something is wrong.</p>
+        <p>Most recently at Delta Dental I've been building a generative AI benefits assistant that answers member questions from plan documents, alongside the claims and cost estimator services it depends on. Before that I worked on warranty and recall systems at Volkswagen, order and inventory services at Nordstrom, and a licensing portal at Citrix.</p>
+        <ul class="facts">
+          <li><b>7+</b><span>years building software</span></li>
+          <li><b>4</b><span>companies, 4 industries</span></li>
+          <li><b>3</b><span>clouds: AWS, Azure, GCP</span></li>
+          <li><b>1</b><span>AI assistant in production</span></li>
+        </ul>
+        <div class="timeline" aria-label="Career timeline, July 2019 to present">
+          <h3>Career timeline · drawn to scale</h3>
+          <div class="tl-bar">
+            <div class="tl-seg intern" style="flex:18" title="Citrix Systems · Jul 2019 – Dec 2020"><b>Citrix</b><span>Python Dev Intern</span></div>
+            <div class="tl-seg" style="flex:22" title="Nordstrom · Jan 2021 – Oct 2022"><b>Nordstrom</b><span>Full Stack Python Dev</span></div>
+            <div class="tl-seg" style="flex:23" title="Volkswagen · Nov 2022 – Sep 2024"><b>Volkswagen</b><span>Full Stack Python Eng</span></div>
+            <div class="tl-seg now" style="flex:25" title="Delta Dental · Oct 2024 – Present"><b>Delta Dental</b><span>Sr. Full Stack Python Eng</span></div>
+          </div>
+          <div class="tl-axis"><span>2019</span><span>2021</span><span>2022</span><span>2024</span><span>Now</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><div><span class="kicker">02 · Skills</span><h2>Stack by layer</h2></div><p>Every tool here appears in at least one of the projects below.</p></div>
+    <div class="skills"><div class="skill"><h3>Languages</h3><ul class="chips"><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li><li>Bash</li></ul></div><div class="skill"><h3>Frontend</h3><ul class="chips"><li>React</li><li>Next.js</li><li>Angular</li><li>Redux Toolkit</li><li>RxJS</li><li>Tailwind CSS</li><li>Material UI</li><li>HTML5</li><li>CSS3</li></ul></div><div class="skill"><h3>Backend &amp; APIs</h3><ul class="chips"><li>FastAPI</li><li>Django</li><li>Django REST Framework</li><li>Flask</li><li>Node.js (Express)</li><li>Celery</li><li>SQLAlchemy</li><li>Pydantic</li><li>Gunicorn</li><li>Uvicorn</li><li>REST</li><li>GraphQL</li><li>WebSockets</li><li>Server-Sent Events</li><li>Swagger/OpenAPI</li><li>HL7 FHIR</li></ul></div><div class="skill ai"><h3>AI / ML / LLM</h3><ul class="chips"><li>OpenAI API</li><li>Anthropic Claude API</li><li>AWS Bedrock</li><li>LangChain</li><li>LangGraph</li><li>Model Context Protocol (MCP)</li><li>RAG</li><li>Prompt Engineering</li><li>Function Calling</li><li>LLM Evaluation</li><li>scikit-learn</li><li>PyTorch</li><li>Hugging Face Transformers</li><li>MLflow</li><li>Pandas</li><li>NumPy</li></ul></div><div class="skill"><h3>Databases &amp; Data Pipelines</h3><ul class="chips"><li>PostgreSQL</li><li>pgvector</li><li>Oracle</li><li>MySQL</li><li>MongoDB</li><li>Cassandra</li><li>Couchbase</li><li>Redis</li><li>Pinecone</li><li>Snowflake</li><li>Apache Kafka</li><li>RabbitMQ</li><li>ActiveMQ</li><li>AWS SQS</li><li>Apache Airflow</li></ul></div><div class="skill"><h3>Cloud &amp; DevOps</h3><ul class="chips"><li>AWS (EC2, S3, Lambda, ECS, EKS, RDS, SQS, API Gateway, CloudWatch, IAM)</li><li>Azure (AKS, Functions, Blob Storage, Key Vault)</li><li>GCP (GKE, Cloud SQL)</li><li>Docker</li><li>Kubernetes</li><li>Terraform</li><li>GitHub Actions</li><li>Jenkins</li><li>GitLab CI/CD</li><li>Nginx</li><li>Linux</li></ul></div><div class="skill"><h3>Architecture &amp; Security</h3><ul class="chips"><li>Microservices</li><li>System Design</li><li>Event-Driven Architecture</li><li>API Gateway</li><li>OOP</li><li>SOLID Principles</li><li>Design Patterns</li><li>OAuth 2.0</li><li>JWT</li><li>Role-Based Access Control</li><li>HIPAA</li><li>PCI DSS</li></ul></div><div class="skill"><h3>Testing &amp; Monitoring</h3><ul class="chips"><li>pytest</li><li>unittest.mock</li><li>Testcontainers</li><li>Jest</li><li>React Testing Library</li><li>Jasmine/Karma</li><li>Postman</li><li>Locust</li><li>mypy</li><li>Ruff</li><li>Black</li><li>Flake8</li><li>SonarQube</li><li>Prometheus</li><li>Grafana</li><li>Datadog</li><li>Sentry</li><li>Splunk</li><li>ELK Stack</li><li>CloudWatch</li></ul></div><div class="skill"><h3>Tools &amp; Practices</h3><ul class="chips"><li>Git</li><li>GitHub</li><li>Jira</li><li>Confluence</li><li>GitHub Copilot</li><li>Claude Code</li><li>Agile/Scrum</li><li>Test-Driven Development</li><li>CI/CD</li><li>Code Reviews</li></ul></div></div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><div><span class="kicker">03 · Experience</span><h2>Where I've worked</h2></div><p>Most recent first. Each role covers the full path from UI to service, queue, database, cloud, and pipeline.</p></div>
+    <div class="jobs"><article class="job"><div class="when">Oct 2024 – Present<br><span class="badge now">Current</span><span class="place">San Francisco, CA</span></div><div>
+<h3>Delta Dental Ins</h3><p class="title">Sr. Full Stack Python Engineer</p>
+<p class="project"><b>Project.</b> Delta Dental&#x27;s Claims Info and Cost Estimator tools let members, dentists, and group administrators look up the status of submitted claims and group claims, and estimate out-of-pocket costs for procedures before treatment. The team rebuilt both tools as cloud-native Python microservices and added an AI assistant that answers member and provider benefit questions.</p><ul class="points"><li>Designed and developed claims lookup, group claims, and cost estimator <strong>microservices</strong> in <strong>Python 3.11</strong> with <strong>FastAPI</strong> and <strong>Pydantic</strong>, served with <strong>Gunicorn</strong> and <strong>Uvicorn</strong> workers and documented with <strong>Swagger/OpenAPI</strong>; managed dependencies with <strong>Poetry</strong>.</li><li>Built member- and provider-facing portals in <strong>React</strong> and <strong>Next.js</strong> with <strong>TypeScript, Redux Toolkit</strong>, and <strong>Tailwind CSS</strong>, sharing a reusable component library across apps.</li><li>Built an LLM-powered benefits assistant on <strong>AWS Bedrock (Anthropic Claude)</strong> and the <strong>OpenAI API</strong>, with a <strong>RAG</strong> pipeline over plan documents and fee schedules that stores embeddings in <strong>pgvector</strong> and <strong>Pinecone</strong>.</li><li>Orchestrated multi-step assistant workflows with <strong>LangChain</strong> and <strong>LangGraph</strong>, using <strong>function calling</strong> to look up live claim status, and built <strong>Model Context Protocol (MCP)</strong> servers that expose claims and eligibility tools to internal AI clients.</li><li>Streamed assistant answers to the React UI with <strong>Server-Sent Events</strong>, and applied <strong>prompt engineering</strong> and guardrails to keep responses grounded in plan documents.</li><li>Built an <strong>LLM evaluation</strong> suite of labeled member questions to measure answer accuracy and catch hallucinations before each release.</li></ul><details class="more"><summary>Show 11 more highlights</summary><ul class="points"><li>Used <strong>asyncio</strong> and <strong>httpx</strong> to call eligibility and benefits services concurrently, with timeouts, retries, and circuit breakers.</li><li>Exchanged claim and coverage data with provider and partner systems using <strong>HL7 FHIR</strong> resources.</li><li>Published claim status change events to <strong>Apache Kafka</strong> and built idempotent consumers that stream updates to the portals and queue batch estimate recalculations.</li><li>Stored claims and member plan data in <strong>PostgreSQL</strong> with <strong>SQLAlchemy</strong> and <strong>Alembic</strong> migrations, kept fee schedules and estimate snapshots in <strong>MongoDB</strong>, and cached benefit summaries in <strong>Redis</strong>.</li><li>Secured APIs with <strong>OAuth 2.0</strong> and <strong>JWT</strong> through <strong>AWS API Gateway</strong>, applying role-based access control and <strong>HIPAA</strong> practices for protected health information (PHI).</li><li>Deployed containerized services to <strong>AWS EKS</strong> with <strong>Docker</strong>, provisioning <strong>EKS, RDS, S3, Lambda</strong>, and <strong>IAM</strong> roles with <strong>Terraform</strong>.</li><li>Ran <strong>pytest, Ruff</strong>, and <strong>mypy</strong> checks on every pull request with <strong>GitHub Actions</strong>, and deployed to EKS through <strong>Jenkins</strong> with <strong>SonarQube</strong> gates and blue-green releases.</li><li>Managed source code in <strong>GitHub</strong> with feature branches, pull requests, and required code reviews.</li><li>Followed <strong>TDD</strong>, writing <strong>pytest</strong> and <strong>Testcontainers</strong> tests for services, <strong>Postman</strong> collections for API checks, and <strong>Jest</strong> and <strong>React Testing Library</strong> tests for the portals.</li><li>Implemented structured <strong>logging</strong> with <strong>structlog</strong>, exposed <strong>Prometheus</strong> metrics with <strong>Grafana</strong> dashboards, and used <strong>Splunk</strong> and <strong>CloudWatch</strong> alarms for failed lookups.</li><li>Worked as a senior individual contributor in <strong>Agile/Scrum</strong> sprints, leading design reviews, documenting designs in <strong>Confluence</strong>, using <strong>GitHub Copilot</strong> and <strong>Claude Code</strong> to speed up development, and mentoring junior developers.</li></ul></details>
+<ul class="tags"><li>Python 3.11</li><li>FastAPI</li><li>Pydantic</li><li>Swagger/OpenAPI</li><li>Poetry</li><li>asyncio</li><li>httpx</li><li>SQLAlchemy</li><li>Alembic</li><li>Gunicorn</li><li>Uvicorn</li><li>React</li></ul></div></article><article class="job"><div class="when">Nov 2022 – Sep 2024<br><span class="place">Rochester, MI</span></div><div>
+<h3>Volkswagen</h3><p class="title">Full Stack Python Engineer</p>
+<p class="project"><b>Project.</b> Volkswagen&#x27;s Dealer Service and Warranty Platform connects dealerships with the manufacturer for vehicle service history, warranty claims, and recall campaigns. Connected-vehicle diagnostic data flows into the platform so dealers can see open recalls and warranty eligibility before a vehicle arrives.</p><ul class="points"><li>Developed dealer-facing service history, warranty claim, and recall screens in <strong>Angular</strong> with <strong>TypeScript</strong> and <strong>RxJS</strong>.</li><li>Built warranty claim, recall campaign, and vehicle history <strong>microservices</strong> in <strong>Python 3.9</strong> with <strong>Django</strong> and <strong>Django REST Framework</strong>, following <strong>OOP</strong>, <strong>SOLID principles</strong>, and design patterns.</li><li>Ingested connected-vehicle diagnostic events into <strong>Apache Kafka</strong> and built Python consumers that match fault codes against open recalls and warranty coverage in real time.</li><li>Used <strong>Celery</strong> workers with <strong>RabbitMQ</strong> to process claim reviews, dealer notifications, and document generation in the background.</li><li>Built a warranty claim anomaly model with <strong>scikit-learn</strong> and <strong>PyTorch</strong> that flags unusual claims for review, using <strong>Pandas</strong> and <strong>NumPy</strong> for feature engineering and <strong>MLflow</strong> to track experiments and model versions.</li><li>Used <strong>Hugging Face Transformers</strong> to classify technician repair notes into failure categories, improving claim routing.</li></ul><details class="more"><summary>Show 8 more highlights</summary><ul class="points"><li>Stored warranty claims and dealer data in <strong>Oracle</strong> through the <strong>Django ORM</strong>, and kept high-volume vehicle event history in <strong>Cassandra</strong>.</li><li>Secured dealer access with <strong>OAuth 2.0</strong> and <strong>JWT</strong>, enforcing role-based access control for service advisors, technicians, and warranty administrators.</li><li>Deployed services to <strong>Azure Kubernetes Service (AKS)</strong> with <strong>Docker</strong>, used <strong>Azure Functions</strong> for document intake, <strong>Azure Blob Storage</strong> for repair photos, and <strong>Azure Key Vault</strong> for secrets.</li><li>Built <strong>GitLab CI/CD</strong> pipelines that build images, run <strong>pytest</strong>, <strong>Black</strong>, and <strong>Flake8</strong>, and promote releases across dev, QA, and production.</li><li>Managed code in <strong>GitHub</strong> with branch protection rules and pull-request reviews.</li><li>Followed <strong>TDD</strong>, writing <strong>pytest</strong> and <strong>pytest-django</strong> tests for services and <strong>Jasmine/Karma</strong> tests for Angular components.</li><li>Set up centralized <strong>logging</strong> with the <strong>ELK Stack</strong>, and exposed <strong>Prometheus</strong> metrics with <strong>Grafana</strong> dashboards for claim processing.</li><li>Worked in <strong>Agile/Scrum</strong> sprints with dealer operations and warranty teams to refine requirements and demo new features.</li></ul></details>
+<ul class="tags"><li>Python 3.9</li><li>Django</li><li>Django REST Framework</li><li>Celery</li><li>scikit-learn</li><li>PyTorch</li><li>Hugging Face Transformers</li><li>MLflow</li><li>Pandas</li><li>NumPy</li><li>Angular</li><li>TypeScript</li></ul></div></article><article class="job"><div class="when">Jan 2021 – Oct 2022<br><span class="place">Seattle, WA</span></div><div>
+<h3>Nordstrom</h3><p class="title">Full Stack Python Developer</p>
+<p class="project"><b>Project.</b> Nordstrom&#x27;s Order Management and Inventory Availability platform powers online orders, buy-online-pick-up-in-store, and real-time stock visibility across stores and fulfillment centers. The project modernized order routing and inventory services to handle peak holiday traffic reliably.</p><ul class="points"><li>Built order tracking, store pickup, and inventory lookup screens in <strong>React</strong> with Hooks, <strong>Redux</strong>, and <strong>Material UI</strong> for customer service and store associates.</li><li>Developed order routing, inventory availability, and fulfillment <strong>microservices</strong> in <strong>Python 3.8</strong> with <strong>Flask</strong> and <strong>FastAPI</strong>.</li><li>Built a <strong>Node.js (Express)</strong> backend-for-frontend layer, and exposed a <strong>GraphQL</strong> API with Graphene so the React app could fetch order, item, and pickup details in one request.</li><li>Pushed live order and pickup status updates to store associate screens over <strong>WebSockets</strong>.</li><li>Streamed inventory updates from stores and fulfillment centers through <strong>Apache Kafka</strong>, and used <strong>ActiveMQ</strong> queues to hand off fulfillment and pickup notifications.</li><li>Used <strong>asyncio</strong> to check stock across locations concurrently, speeding up order routing decisions during high traffic.</li></ul><details class="more"><summary>Show 8 more highlights</summary><ul class="points"><li>Stored orders in <strong>MySQL</strong> with <strong>SQLAlchemy</strong>, served product availability from <strong>Couchbase</strong>, and cached hot availability data in <strong>Redis</strong> during peak sales.</li><li>Built <strong>Apache Airflow</strong> DAGs that load order and inventory data into <strong>Snowflake</strong> for reporting and forecasting.</li><li>Applied <strong>PCI DSS</strong> controls to payment-related order data, including tokenization, masking in logs, and restricted access.</li><li>Deployed services on <strong>AWS ECS</strong> and <strong>EC2</strong> with <strong>Docker</strong>, using <strong>AWS SQS</strong> for retry queues, <strong>S3</strong> for order exports, and <strong>AWS Lambda</strong> for event handlers, with infrastructure managed in <strong>Terraform</strong>.</li><li>Automated builds, tests, and deployments with <strong>Jenkins</strong> pipelines connected to <strong>GitHub</strong> repositories.</li><li>Followed <strong>TDD</strong>, writing <strong>pytest</strong> unit tests with <strong>unittest.mock</strong>, <strong>Postman</strong> API tests, and <strong>Jest</strong> tests for React components.</li><li>Implemented <strong>logging</strong> with Python <strong>logging</strong>, tracked errors with <strong>Sentry</strong>, and monitored services with <strong>Datadog</strong> dashboards and <strong>CloudWatch</strong> alarms.</li><li>Participated in <strong>Agile/Scrum</strong> ceremonies, including load testing with <strong>Locust</strong> and readiness reviews ahead of holiday peak.</li></ul></details>
+<ul class="tags"><li>Python 3.8</li><li>Flask</li><li>FastAPI</li><li>asyncio</li><li>SQLAlchemy</li><li>Node.js (Express)</li><li>GraphQL</li><li>WebSockets</li><li>React</li><li>Redux</li><li>Material UI</li><li>Kafka</li></ul></div></article><article class="job"><div class="when">Jul 2019 – Dec 2020<br><span class="badge intern">Full-time internship</span><span class="place">Hyderabad, India</span></div><div>
+<h3>Citrix Systems</h3><p class="title">Python Developer Intern</p>
+<p class="project"><b>Project.</b> Citrix&#x27;s Licensing and Entitlement Portal lets enterprise customers and partners manage product licenses, activate entitlements, and track license usage across their Citrix deployments.</p><ul class="points"><li>Built license management and usage dashboard screens in <strong>Angular</strong> with <strong>TypeScript, JavaScript, HTML5, CSS3</strong>, and Bootstrap.</li><li>Developed licensing, entitlement, and usage reporting <strong>microservices</strong> in <strong>Python 3.7</strong> with <strong>Django</strong> and <strong>Django REST Framework</strong>, applying <strong>OOP</strong> and design patterns.</li><li>Used <strong>Celery</strong> with <strong>RabbitMQ</strong> to queue license activation and usage aggregation jobs, so heavy processing ran in the background without slowing the portal.</li><li>Stored customer accounts and entitlements in <strong>PostgreSQL</strong> through the <strong>Django ORM</strong>, and saved license usage records in <strong>MongoDB</strong> with <strong>PyMongo</strong>.</li><li>Deployed containerized services to <strong>Google Cloud Platform (GCP)</strong> on <strong>GKE</strong>, with <strong>Cloud SQL</strong> for managed PostgreSQL and <strong>Nginx</strong> as the reverse proxy.</li><li>Configured <strong>Jenkins</strong> pipelines and <strong>Bash</strong> scripts on <strong>Linux</strong> to install dependencies with <strong>pip</strong>, run <strong>pytest</strong> and <strong>SonarQube</strong> scans, and deploy to GKE.</li></ul><details class="more"><summary>Show 4 more highlights</summary><ul class="points"><li>Used <strong>Git</strong> and <strong>GitHub</strong> for version control, branching, and peer code reviews.</li><li>Wrote <strong>pytest</strong> and <strong>unittest</strong> unit and integration tests following <strong>TDD</strong>, and maintained <strong>Postman</strong> collections for API testing.</li><li>Added Python <strong>logging</strong> across services to make debugging and production support easier.</li><li>Worked in an <strong>Agile</strong> team, taking part in sprint planning, daily stand-ups, and retrospectives.</li></ul></details>
+<ul class="tags"><li>Python 3.7</li><li>Django</li><li>Django REST Framework</li><li>Celery</li><li>PyMongo</li><li>Angular</li><li>TypeScript</li><li>JavaScript</li><li>HTML5</li><li>CSS3</li><li>Bootstrap</li><li>RabbitMQ</li></ul></div></article></div>
+  </section>
+
+  <section id="cases">
+    <div class="sec-head"><div><span class="kicker">04 · Case studies</span><h2>Problems I've solved</h2></div><p>Six engineering problems from these roles: what was wrong, what I built, and what changed.</p></div>
+    <div class="cases">
+      <article class="case"><p class="where">Delta Dental · 2024–now</p><h3>An AI assistant that stays grounded</h3><dl>
+        <dt>Problem</dt><dd>Members and providers called support with benefit questions that were already answered somewhere in long plan documents.</dd>
+        <dt>Approach</dt><dd>Built a RAG pipeline over plan documents and fee schedules in pgvector, orchestrated with LangGraph, with live claim lookups through function calling and MCP tools, answered by Claude on AWS Bedrock.</dd>
+        <dt>Result</dt><dd>Answers cite the plan they came from, and an evaluation suite of labeled questions checks accuracy and hallucinations before each release.</dd></dl>
+        <div class="stack"><span>LangGraph</span><span>Bedrock</span><span>pgvector</span><span>MCP</span><span>SSE</span></div></article>
+      <article class="case"><p class="where">Delta Dental · 2024–now</p><h3>Claim lookups that don't wait in line</h3><dl>
+        <dt>Problem</dt><dd>A single claim or estimate screen depended on several eligibility and benefits services, called one after another.</dd>
+        <dt>Approach</dt><dd>Rewrote the services in FastAPI with asyncio and httpx so calls run concurrently, added timeouts, retries, and circuit breakers, and cached benefit summaries in Redis.</dd>
+        <dt>Result</dt><dd>Screens load faster, and a slow dependency no longer takes the whole portal down with it.</dd></dl>
+        <div class="stack"><span>FastAPI</span><span>asyncio</span><span>httpx</span><span>Redis</span></div></article>
+      <article class="case"><p class="where">Volkswagen · 2022–2024</p><h3>Recalls matched before the car arrives</h3><dl>
+        <dt>Problem</dt><dd>Dealers often learned about open recalls or warranty coverage only after a vehicle was already in the service bay.</dd>
+        <dt>Approach</dt><dd>Streamed connected-vehicle diagnostic events through Kafka into Python consumers that match fault codes against open recalls and coverage, with history kept in Cassandra.</dd>
+        <dt>Result</dt><dd>Dealers see open recalls and warranty eligibility in real time, before the appointment.</dd></dl>
+        <div class="stack"><span>Kafka</span><span>Django</span><span>Cassandra</span><span>AKS</span></div></article>
+      <article class="case"><p class="where">Volkswagen · 2022–2024</p><h3>Spotting unusual warranty claims</h3><dl>
+        <dt>Problem</dt><dd>Reviewers had no quick way to tell which warranty claims deserved a closer look.</dd>
+        <dt>Approach</dt><dd>Trained an anomaly model with scikit-learn and PyTorch, classified technician repair notes with Hugging Face Transformers, and tracked every experiment in MLflow.</dd>
+        <dt>Result</dt><dd>Unusual claims are flagged for review automatically, and repair notes route claims to the right team.</dd></dl>
+        <div class="stack"><span>scikit-learn</span><span>PyTorch</span><span>Hugging Face</span><span>MLflow</span></div></article>
+      <article class="case"><p class="where">Nordstrom · 2021–2022</p><h3>Inventory that holds up at holiday peak</h3><dl>
+        <dt>Problem</dt><dd>Online availability and order routing had to stay accurate during the busiest sale days of the year.</dd>
+        <dt>Approach</dt><dd>Streamed store inventory through Kafka, served availability from Couchbase with Redis caching, checked locations concurrently with asyncio, and load-tested with Locust.</dd>
+        <dt>Result</dt><dd>Availability stayed in sync across stores and fulfillment centers through peak traffic.</dd></dl>
+        <div class="stack"><span>Kafka</span><span>Couchbase</span><span>Redis</span><span>Locust</span></div></article>
+      <article class="case"><p class="where">Citrix · 2019–2020</p><h3>Heavy license jobs off the request path</h3><dl>
+        <dt>Problem</dt><dd>License activation and usage aggregation slowed the portal while customers waited.</dd>
+        <dt>Approach</dt><dd>Moved the work to Celery workers on RabbitMQ, with entitlements in PostgreSQL and usage records in MongoDB.</dd>
+        <dt>Result</dt><dd>The portal stays responsive while heavy jobs run in the background.</dd></dl>
+        <div class="stack"><span>Django</span><span>Celery</span><span>RabbitMQ</span><span>GKE</span></div></article>
+    </div>
+  </section>
+
+  <section id="practice">
+    <div class="sec-head"><div><span class="kicker">05 · How I work</span><h2>Habits I bring to a team</h2></div><p>What stays the same from one team to the next.</p></div>
+    <div class="grid4">
+      <div><h3>Typed, tested Python</h3><p>Type hints, Pydantic, and mypy, with Ruff and Black in CI, and pytest written before the code.</p></div>
+      <div><h3>Async where it counts</h3><p>asyncio for fan-out calls, Kafka and Celery for anything that shouldn't block a user.</p></div>
+      <div><h3>AI with guardrails</h3><p>Retrieval for grounding, evaluation suites before release, and cost and latency tracked like any other service.</p></div>
+      <div><h3>Right database for the job</h3><p>PostgreSQL for core data, MongoDB or Cassandra for flexible or high-volume data, Redis for hot reads.</p></div>
+      <div><h3>Security built in</h3><p>OAuth 2.0, JWT, and role-based access from day one, with HIPAA and PCI DSS rules where the data needs them.</p></div>
+      <div><h3>Infrastructure as code</h3><p>Terraform, Docker, and Kubernetes on AWS, Azure, or GCP, shipped through GitHub Actions, Jenkins, or GitLab.</p></div>
+      <div><h3>Production you can see</h3><p>Structured logs, Prometheus metrics, and Grafana, Datadog, or Splunk dashboards that show what broke and where.</p></div>
+      <div><h3>Team first</h3><p>Agile sprints, design reviews in Confluence, careful code reviews, and mentoring junior developers.</p></div>
+    </div>
+  </section>
+
+  <section id="hobbies">
+    <div class="sec-head"><div><span class="kicker">06 · Outside work</span><h2>Off the keyboard</h2></div><p>What I do when I'm not shipping services.</p></div>
+    <div class="hobbies">
+      <div class="hobby">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="17" r="11" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M9 9l16 16M25 9L9 25M17 6v22M6 17h22" stroke="currentColor" stroke-width="1.2" opacity=".55"/><path d="M25 25l15 15" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><circle cx="39" cy="11" r="3.5" fill="currentColor"/><path d="M36.5 13.5l-4 4M39 14.5v5M41.5 13.5l2 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <h3>Badminton</h3>
+        <p>I play regularly. It's fast, it rewards reading the other player a split second early, and it's the best way I know to clear my head after a long day.</p>
+      </div>
+      <div class="hobby">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="9" width="38" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M14 19l-5 4 5 4M34 19l5 4-5 4M27 16l-6 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 42h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <h3>Learning new tools</h3>
+        <p>I try new frameworks, AI tooling, and cloud services hands-on, usually by building something small with them, so I know where they fit before I bring them to a team.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head"><div><span class="kicker">07 · Education</span><h2>Education</h2></div><p></p></div>
+    <div class="edu">
+      <div><p class="lvl">Master of Science</p><h3>Computer Science and Information Security</h3><p>University at Albany, SUNY · Albany, NY</p></div>
+      <div><p class="lvl">Bachelor of Technology</p><h3>Computer Science</h3><p>VIT-AP University · Ainavolu, India</p></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <div>
+        <span class="kicker">08 · Contact</span>
+        <h2>Let's build something.</h2>
+        <p>Open to Python full stack and backend roles in the Bay Area or remote. Email is the fastest way to reach me.</p>
+      </div>
+      <div class="reach">
+        <div class="row"><div style="min-width:0"><small>Email</small><span class="val" id="email">yogek3647@gmail.com</span></div><button class="copy" id="copy-email" type="button">Copy</button></div>
+        <div class="row"><div style="min-width:0"><small>Phone</small><span class="val" id="phone">510-519-4787</span></div><button class="copy" id="copy-phone" type="button">Copy</button></div>
+        <div class="row"><div style="min-width:0"><small>GitHub</small><a class="val" href="https://github.com/yogikotha9" target="_blank" rel="noopener">github.com/yogikotha9</a></div></div>
+        <div class="row"><div style="min-width:0"><small>Medium</small><a class="val" href="https://medium.com/@yogikotha9" target="_blank" rel="noopener">medium.com/@yogikotha9</a></div></div>
+        <div class="row cv"><div style="min-width:0"><small>Resume</small><span class="val">PDF · 4 pages</span></div><a class="btn primary" href="Yogeshwar_Kotha_Resume.pdf" download="Yogeshwar_Kotha_Resume.pdf"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>Download</a></div>
+        <div class="row"><div style="min-width:0"><small>Location</small><span class="val">Fremont, CA · SF Bay Area</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer><span>Yogeshwar Kotha · Python Full Stack Engineer</span><span>Fremont, CA</span></footer>
+</div>
+
+<script>
+function wireCopy(btnId, valId){
+  var btn=document.getElementById(btnId); if(!btn) return;
+  btn.addEventListener('click',function(){
+    var el=document.getElementById(valId), text=el.textContent;
+    function done(m){btn.textContent=m;setTimeout(function(){btn.textContent='Copy'},1800)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);done('Selected')}
+    try{navigator.clipboard.writeText(text).then(function(){done('Copied')},fallback)}catch(e){fallback()}
+  });
+}
+wireCopy('copy-email','email'); wireCopy('copy-phone','phone');
+
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // scroll progress
+  var bar=document.querySelector('.progress');
+  function onScroll(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;bar.style.setProperty('--p',max>0?(h.scrollTop/max).toFixed(4):0)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  // cursor spotlight
+  document.querySelectorAll('.case,.skill,.hobby,.facts li,.edu div').forEach(function(el){
+    el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect();el.style.setProperty('--mx',(e.clientX-r.left)+'px');el.style.setProperty('--my',(e.clientY-r.top)+'px')});
+  });
+  if(reduce) return;
+  // typed words
+  var words=['FastAPI','Django','React & Next.js','Kafka','LangGraph','AWS Bedrock','pytest'],el=document.getElementById('typed'),wi=0,ci=words[0].length,del=true;
+  function tick(){var w=words[wi];
+    if(del){ci--; if(ci<=0){del=false;wi=(wi+1)%words.length}}
+    else{ci++; if(ci>=words[wi].length){del=true; el.textContent=words[wi]; return setTimeout(tick,1600)}}
+    el.textContent=words[wi].slice(0,Math.max(ci,0))||'\u00a0';
+    setTimeout(tick,del?45:85)}
+  setTimeout(tick,2200);
+  // count-up on the fact numbers (final numbers are already in the page)
+  var nums=document.querySelectorAll('.facts b');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){
+      if(!en.isIntersecting) return; io.unobserve(en.target);
+      var b=en.target, txt=b.textContent, n=parseInt(txt,10), suf=txt.replace(/^\d+/,''), t0=null;
+      if(!n) return;
+      function step(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/900);b.textContent=Math.round(n*(1-Math.pow(1-k,3)))+suf;if(k<1)requestAnimationFrame(step)}
+      requestAnimationFrame(step);
+    })},{threshold:.6});
+    nums.forEach(function(b){io.observe(b)});
+  }
+})();
+
+</script>
+</body>
+</html>
